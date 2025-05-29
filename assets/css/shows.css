@@ -1,0 +1,525 @@
+/* Cúlra Shows Page Styles */
+
+/* Shows Hero Section */
+.shows-hero {
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, var(--darker-color) 0%, var(--dark-color) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.shows-hero-content h1 {
+    font-size: 3rem;
+    font-weight: var(--font-weight-normal);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.shows-hero-content p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    font-style: italic;
+}
+
+/* Shows Grid Layout */
+.shows-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+/* Show Cards */
+.show-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.show-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.show-card:hover::before {
+    opacity: 1;
+}
+
+.show-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+/* Show Card States */
+.show-card.sold-out {
+    opacity: 0.7;
+}
+
+.show-card.past {
+    opacity: 0.5;
+}
+
+/* Show Header */
+.show-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.show-date-large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 80px;
+}
+
+.show-date-large .month {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-medium);
+}
+
+.show-date-large .day {
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+}
+
+.show-date-large .year {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+}
+
+.show-status-large {
+    text-align: right;
+}
+
+.status-badge {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: var(--font-weight-bold);
+    border-radius: 0;
+}
+
+.status-badge.on-sale {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.status-badge.sold-out {
+    background: var(--text-medium);
+    color: var(--darker-color);
+}
+
+.status-badge.announced {
+    background: transparent;
+    border: 1px solid var(--text-medium);
+    color: var(--text-medium);
+}
+
+/* Show Details */
+.show-details h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-normal);
+}
+
+.show-venue {
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.show-location {
+    color: var(--text-medium);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.show-time {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.show-price {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+    font-weight: var(--font-weight-bold);
+}
+
+.show-age {
+    font-size: 0.8rem;
+    color: var(--text-medium);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.show-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+/* Show Actions */
+.show-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.ticket-button {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.ticket-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--primary-color);
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.ticket-button:hover::before {
+    left: 0;
+}
+
+.ticket-button:hover {
+    color: var(--darker-color);
+}
+
+.ticket-button.disabled {
+    border-color: var(--text-medium);
+    color: var(--text-medium);
+    cursor: not-allowed;
+}
+
+.ticket-button.disabled::before {
+    display: none;
+}
+
+.info-button {
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--border-color);
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    transition: var(--transition);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.info-button:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Past Shows Section */
+.past-shows {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.past-shows h2 {
+    color: var(--text-medium);
+    margin-bottom: 2rem;
+}
+
+.past-show-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 0.6;
+    transition: var(--transition);
+}
+
+.past-show-item:hover {
+    opacity: 0.8;
+    background: rgba(255, 255, 255, 0.01);
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.past-show-info h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    font-weight: var(--font-weight-normal);
+}
+
+.past-show-info p {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+}
+
+.past-show-date {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    white-space: nowrap;
+}
+
+/* No Shows Message */
+.no-shows {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-medium);
+}
+
+.no-shows p {
+    margin-bottom: 1rem;
+}
+
+/* Archive Link */
+.archive-link {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.archive-link a {
+    color: var(--text-medium);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--text-medium);
+    transition: var(--transition);
+}
+
+.archive-link a:hover {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Search and Filter (for future enhancement) */
+.shows-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    background: transparent;
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-button:hover,
+.filter-button.active {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Loading States */
+.loading {
+    text-align: center;
+    padding: 3rem 0;
+    color: var(--text-medium);
+}
+
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--border-color);
+    border-top: 2px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .shows-hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .shows-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .show-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .show-date-large {
+        align-self: flex-start;
+    }
+    
+    .show-status-large {
+        text-align: left;
+    }
+    
+    .show-actions {
+        flex-direction: column;
+    }
+    
+    .ticket-button,
+    .info-button {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .past-show-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        text-align: left;
+    }
+    
+    .past-show-date {
+        align-self: flex-start;
+    }
+    
+    .shows-filters {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-button {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .show-card {
+        padding: 1.5rem;
+    }
+    
+    .show-date-large .day {
+        font-size: 2rem;
+    }
+    
+    .show-details h3 {
+        font-size: 1.2rem;
+    }
+    
+    .shows-hero {
+        height: 50vh;
+    }
+    
+    .shows-hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .shows-hero-content p {
+        font-size: 1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .shows-hero,
+    .show-actions,
+    .shows-filters {
+        display: none;
+    }
+    
+    .show-card {
+        border: 1px solid #ccc;
+        background: white;
+        color: black;
+        margin-bottom: 2rem;
+        break-inside: avoid;
+    }
+    
+    .show-card:hover::before {
+        display: none;
+    }
+    
+    .past-shows {
+        page-break-before: always;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .status-badge.on-sale {
+        background: var(--primary-color);
+        color: var(--darker-color);
+    }
+    
+    .show-card {
+        border-width: 2px;
+    }
+    
+    .ticket-button,
+    .info-button {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    .show-card,
+    .ticket-button::before,
+    .past-show-item {
+        transition: none;
+    }
+    
+    .loading::after {
+        animation: none;
+    }
+    
+    .show-card:hover {
+        transform: none;
+    }
+}

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shows - Cúlra</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/shows.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <div class="logo-circle"></div>
+                <span class="logo-text">CÚLRA</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../">Home</a></li>
+                <li><a href="../#about">About</a></li>
+                <li><a href="../#music">Music</a></li>
+                <li><a href="#shows" class="active">Shows</a></li>
+                <li><a href="../#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container section">
+        <h2>Upcoming Shows</h2>
+        
+        <!-- Optional: Filter buttons for future enhancement -->
+        <!--
+        <div class="shows-filters">
+            <button class="filter-button active" data-filter="all">All Shows</button>
+            <button class="filter-button" data-filter="acoustic">Acoustic</button>
+            <button class="filter-button" data-filter="full-band">Full Band</button>
+            <button class="filter-button" data-filter="on-sale">On Sale</button>
+        </div>
+        -->
+        
+        <div class="shows-grid fade-in" id="upcoming-shows-grid">
+            <!-- Shows will be dynamically loaded here -->
+            <div class="loading">Loading upcoming shows...</div>
+        </div>
+    </section>
+
+    <section class="container past-shows">
+        <h2>Recent Performances</h2>
+        <div class="fade-in" id="past-shows-list">
+            <!-- Past shows will be dynamically loaded here -->
+            <div class="loading">Loading past shows...</div>
+        </div>
+        
+        <!-- Future enhancement: Link to full archive -->
+        <!--
+        <div class="archive-link">
+            <a href="archive/">View Complete Show Archive</a>
+        </div>
+        -->
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-logo">
+                <div class="footer-logo-circle"></div>
+                <span>CÚLRA</span>
+            </div>
+            <p>&copy; 2025 Cúlra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/shows-data.js"></script>
+    <script src="../assets/js/shows-renderer.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script>
+        // Initialize shows page
+        document.addEventListener('DOMContentLoaded', function() {
+            const showsRenderer = new ShowsRenderer();
+            showsRenderer.renderShowsPage();
+            
+            // Optional: Initialize filters when ready
+            // initShowFilters();
+        });
+        
+        // Future enhancement: Show filtering
+        function initShowFilters() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const showsRenderer = new ShowsRenderer();
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filter = this.dataset.filter;
+                    const upcomingShows = ShowsUtils.getUpcomingShows();
+                    
+                    let filteredShows;
+                    switch(filter) {
+                        case 'acoustic':
+                            filteredShows = upcomingShows.filter(show => show.type === 'acoustic');
+                            break;
+                        case 'full-band':
+                            filteredShows = upcomingShows.filter(show => show.type === 'full-band');
+                            break;
+                        case 'on-sale':
+                            filteredShows = upcomingShows.filter(show => show.status === 'on-sale');
+                            break;
+                        default:
+                            filteredShows = upcomingShows;
+                    }
+                    
+                    showsRenderer.renderFilteredShows(filteredShows, 'upcoming-shows-grid');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
