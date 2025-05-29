@@ -223,7 +223,6 @@ nav {
     margin-bottom: 2rem;
 }
 
-
 .footer-logo-image {
     width: 160px;
     height: auto;
@@ -475,6 +474,109 @@ nav {
     color: var(--text-light);
     line-height: 1.6;
     font-size: 0.95rem;
+}
+
+
+/* Instagram Section */
+/* Instagram Section Centering Styles */
+
+.instagram-feed {
+    text-align: center;
+    max-width: 600px; /* Constrains the width for better centering */
+    margin: 0 auto; /* Centers the entire feed container */
+}
+
+.instagram-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.instagram-header p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+}
+
+.instagram-handle {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: var(--font-weight-bold);
+    transition: var(--transition);
+}
+
+.instagram-handle:hover {
+    color: var(--text-light);
+}
+
+.instagram-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.instagram-post {
+    width: 100%;
+    max-width: 540px; /* Matches Instagram's max-width */
+    margin: 0 auto;
+}
+
+.post-image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Center the Instagram blockquote specifically */
+.instagram-media {
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.post-overlay {
+    /* Keep your existing post-overlay styles if any */
+}
+
+.instagram-cta {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.instagram-cta .cta-button {
+    /* Inherits your existing .cta-button styles */
+    display: inline-block;
+}
+
+/* Mobile responsiveness for Instagram section */
+@media (max-width: 768px) {
+    .instagram-feed {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+    
+    .instagram-post {
+        max-width: 100%;
+    }
+    
+    .instagram-media {
+        max-width: 100% !important;
+        min-width: 280px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .instagram-feed {
+        padding: 0 0.5rem;
+    }
+    
+    .instagram-header p {
+        font-size: 1rem;
+    }
+    
+    .instagram-handle {
+        font-size: 0.9rem;
+    }
 }
 
 /* Music Section */
