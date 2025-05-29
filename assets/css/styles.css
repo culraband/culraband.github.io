@@ -224,7 +224,7 @@ nav {
 }
 
 .hero-logo-image {
-    width: 800px;
+    width: clamp(160px, 80vw, 800px);
     height: auto;
     opacity: 0;
     animation: fadeInUp 1s ease 0.3s forwards;
