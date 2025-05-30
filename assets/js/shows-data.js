@@ -4,7 +4,7 @@
 const showsData = [
     {
         id: 'fhd-balt-2025-01-18',
-        date: '01-18-25',
+        date: '2025-01-18',
         venue: 'Four Hour Day Lutherie',
         city: 'Baltimore',
         state: 'MD',
@@ -15,7 +15,7 @@ const showsData = [
     },
     {
         id: 'bwb-ecm-2025-02-01',
-        date: '02-01-25',
+        date: '2025-02-01',
         venue: 'Backwater Books',
         city: 'Ellicot City',
         state: 'MD',
@@ -26,7 +26,7 @@ const showsData = [
     },
     {
         id: 'eo-fva-2025-03-14',
-        date: '03-14-25',
+        date: '2025-03-14',
         venue: 'Earp\'s Ordinary',
         city: 'Fairfax',
         state: 'VA',
@@ -37,7 +37,7 @@ const showsData = [
     },
     {
         id: 'dcf-dpa-2025-04-12',
-        date: '04-12-25',
+        date: '2025-04-12',
         venue: 'Dills Celtic Fest',
         city: 'Dillsburg',
         state: 'PA',
@@ -48,7 +48,7 @@ const showsData = [
     },
     {
         id: 'haf-hpa-2025-05-25',
-        date: '05-25-25',
+        date: '2025-05-25',
         venue: 'Harrisburg Arts Fest',
         city: 'Harrisburg',
         state: 'PA',
@@ -59,7 +59,7 @@ const showsData = [
     },
     {
         id: 'bwb-ecm-2026-02-21',
-        date: '02-21-26',
+        date: '2026-02-21',
         venue: 'Backwater Books',
         city: 'Ellicot City',
         state: 'MD',
@@ -70,7 +70,7 @@ const showsData = [
     },
     {
         id: 'bwb-ecm-2026-07-18',
-        date: '07-18-26',
+        date: '2026-07-18',
         venue: 'Backwater Books',
         city: 'Ellicot City',
         state: 'MD',
@@ -89,18 +89,20 @@ const ShowsUtils = {
             .sort((a, b) => new Date(a.date) - new Date(b.date));
     },
 
-    getUpcomingShows() {
-        today = Date.now()
-        return showsData
-            .filter((a) => new Date(a.date) >= today)
-            .sort((a, b) => new Date(a.date) - new Date(b.date));
+   getUpcomingShows() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Set to start of day for better comparison
+    return showsData
+        .filter((a) => new Date(a.date) >= today)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
     },
 
     getPastShows() {
-        today = Date.now()
-        return showsData
-            .filter((a) => new Date(a.date) < today)
-            .sort((a, b) => new Date(b.date) - new Date(a.date)); // Most recent first
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return showsData
+        .filter((a) => new Date(a.date) < today)
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
     },
 
     getFeaturedShows() {
