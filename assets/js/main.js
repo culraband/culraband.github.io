@@ -90,6 +90,11 @@ function initMobileMenu() {
     const navLinks = document.querySelector('.nav-links');
     let isMenuOpen = false;
     
+    // Helper function to check if we're on mobile
+    function isMobileView() {
+        return window.innerWidth <= 768;
+    }
+
     if (mobileToggle && navLinks) {
         mobileToggle.addEventListener('click', function() {
             isMenuOpen = !isMenuOpen;
@@ -118,9 +123,9 @@ function initMobileMenu() {
             }
         });
         
-        // Close menu when clicking on a link
+         // Close menu when clicking on a link - BUT ONLY ON MOBILE
         navLinks.addEventListener('click', function(e) {
-            if (e.target.tagName === 'A') {
+            if (e.target.tagName === 'A' && isMobileView()) {
                 isMenuOpen = false;
                 navLinks.style.display = 'none';
                 
@@ -131,9 +136,9 @@ function initMobileMenu() {
             }
         });
         
-        // Close menu when clicking outside
+        // Close menu when clicking outside - BUT ONLY ON MOBILE
         document.addEventListener('click', function(e) {
-            if (isMenuOpen && !mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
+            if (isMenuOpen && isMobileView() && !mobileToggle.contains(e.target) && !navLinks.contains(e.target)) {
                 isMenuOpen = false;
                 navLinks.style.display = 'none';
                 
@@ -300,5 +305,5 @@ console.log(`
     ████████████████████████████████████████
     
     Website built with passion and attention to detail.
-    For inquiries: culraband@gmail.com.com
+    For inquiries: culrabandtech@gmail.com.com
 `);
