@@ -26,6 +26,7 @@ class ShowsRenderer {
                     <div class="show-date">
                         <span class="month">${dateInfo.month}</span>
                         <span class="day">${dateInfo.day}</span>
+                        <span class="year">${dateInfo.year}</span>
                     </div>
                     <div class="show-info">
                         <h3>${show.venue}</h3>
@@ -35,7 +36,7 @@ class ShowsRenderer {
                     <div class="show-status">
                         ${show.detailsUrl ? 
                             `<a href="${show.detailsUrl}" class="ticket-link" target="_blank" rel="noopener">Details</a>` :
-                            `<span class="info-text">More info coming</span>`
+                            `<span class="info-text"></span>`
                         }
                     </div>
                 </div>
@@ -87,7 +88,7 @@ class ShowsRenderer {
                 
                 <div class="show-details">
                     <h3>${show.venue}</h3>
-                    <p class="show-venue">${this.utils.getShowTypeLabel(show.type)}</p>
+                    <p class="show-venue">${show.venue}</p>
                     <p class="show-location">${show.city}, ${show.state}</p>
                     <p class="show-time">Show time: ${show.time}</p>
                     <p class="show-description">${show.description}</p>
@@ -108,34 +109,12 @@ class ShowsRenderer {
         if (show.detailsUrl) {
             actions.push(`
                 <a href="${show.detailsUrl}" 
-                   class="ticket-button" 
+                   class="info-button" 
                    target="_blank" 
                    rel="noopener"
                    onclick="trackShowClick('${show.id}', 'details')">
                     Event Details
                 </a>
-            `);
-        }
-        
-        // Venue info button
-        if (show.venueUrl) {
-            actions.push(`
-                <a href="${show.venueUrl}" 
-                   class="info-button" 
-                   target="_blank" 
-                   rel="noopener"
-                   onclick="trackShowClick('${show.id}', 'venue')">
-                    Venue Info
-                </a>
-            `);
-        }
-        
-        // Add to calendar button
-        if (this.utils.isUpcoming(show.date)) {
-            actions.push(`
-                <button class="info-button" onclick="addToCalendar('${show.id}')">
-                    Add to Calendar
-                </button>
             `);
         }
         
