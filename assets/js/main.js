@@ -151,6 +151,37 @@ function initMobileMenu() {
     }
 }
 
+// Also update the resize handler to reset the menu state properly
+window.addEventListener('resize', debounce(function() {
+    // Reset mobile menu on resize
+    const navLinks = document.querySelector('.nav-links');
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (window.innerWidth > 768 && navLinks) {
+        // Reset to desktop styles
+        navLinks.style.display = 'flex';
+        navLinks.style.flexDirection = 'row';
+        navLinks.style.position = 'static';
+        navLinks.style.background = 'none';
+        navLinks.style.padding = '0';
+        navLinks.style.gap = '2.5rem'; // Match your CSS
+        
+        // Reset mobile toggle icon
+        if (mobileToggle) {
+            const spans = mobileToggle.querySelectorAll('span');
+            spans[0].style.transform = 'none';
+            spans[1].style.opacity = '1';
+            spans[2].style.transform = 'none';
+        }
+        
+        // Reset menu state
+        isMenuOpen = false;
+    } else if (window.innerWidth <= 768 && navLinks) {
+        navLinks.style.display = 'none';
+    }
+}, 250));
+
+
 // Album card interactions
 function initAlbumInteractions() {
     const albumCards = document.querySelectorAll('.album-card');
