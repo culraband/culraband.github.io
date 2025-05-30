@@ -210,17 +210,14 @@ nav {
     background: linear-gradient(135deg, var(--darker-color) 0%, var(--dark-color) 100%);
 }
 
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-logo {
-    display: flex;
-    flex-direction: column;
+.logo-image {
     align-items: center;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    width: 90%;
+    max-width: 800px;
+    height: auto;
+    opacity: 0;
+    animation: fadeInUp 1s ease 0.3s forwards;
+    filter: brightness(1) contrast(1.1);
 }
 
 .footer-logo-image {
@@ -342,12 +339,6 @@ nav {
 }
 
 /* About Section */
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-}
 
 .about-text {
     font-size: 1.1rem;
@@ -359,14 +350,8 @@ nav {
     margin-bottom: 1.5rem;
 }
 
-.band-image {
-    display: flex;
-    justify-content: center;
-}
-
 .band-photo {
     width: 100%;
-    max-width: 400px;
     height: auto;
     border-radius: 0;
     transition: var(--transition);
@@ -384,6 +369,8 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
     margin-top: 2rem;
+    justify-content: center;
+
 }
 
 .member-card {
@@ -393,6 +380,11 @@ nav {
     transition: var(--transition);
     position: relative;
     overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+
+
 }
 
 .member-card::before {
@@ -418,6 +410,7 @@ nav {
 
 .member-photo {
     width: 100%;
+    max-width: 400px;
     height: 300px;
     overflow: hidden;
     position: relative;
@@ -453,6 +446,7 @@ nav {
 
 .member-info {
     padding: 2rem;
+    max-width: 500px;
 }
 
 .member-info h3 {
@@ -925,10 +919,6 @@ footer p {
         display: flex;
     }
     
-    .hero-logo-image {
-        width: 150px;
-    }
-    
     .hero h1 {
         font-size: 2.5rem;
     }
@@ -990,10 +980,6 @@ footer p {
 @media (max-width: 480px) {
     .container {
         padding: 0 20px;
-    }
-    
-    .hero-logo-image {
-        width: 120px;
     }
     
     .hero h1 {
