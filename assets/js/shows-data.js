@@ -83,12 +83,6 @@ const showsData = [
 
 // Utility functions for working with shows data
 const ShowsUtils = {
-    // Get shows by status
-    getAllShows() {
-        return showsData
-            .sort((a, b) => new Date(a.date) - new Date(b.date));
-    },
-
    getUpcomingShows() {
     const today = new Date();
     today.setHours(0, 0, 0, 0); // Set to start of day for better comparison
@@ -130,7 +124,7 @@ const ShowsUtils = {
 
     // Format date utilities
     formatDate(dateString) {
-        const date = new Date(dateString);
+        const date = new Date(dateString + 'T12:00:00');
         return {
             month: date.toLocaleDateString('en-US', { month: 'short' }).toUpperCase(),
             day: date.getDate().toString(),
