@@ -69,6 +69,17 @@ const showsData = [
         detailsUrl: ''
     },
     {
+         id: 'dcf-dpa-2026-04-18',
+        date: '2026-04-18',
+        venue: 'Dills Celtic Fest',
+        city: 'Dillsburg',
+        state: 'PA',
+        country: 'US',
+        time: '1:45 PM',
+        description: 'We had a great time at Dills in 2025. Come catch our set on Saturday 4/18!',
+        detailsUrl: 'https://dillscelticfest.com/entertainment-schedule',
+    },
+    {
         id: 'bwb-ecm-2026-07-18',
         date: '2026-07-18',
         venue: 'Backwater Books',
@@ -78,6 +89,17 @@ const showsData = [
         time: '8:00 PM',
         description: 'We\'ll be at Backwater Books in Ellicott City for a night of Books, Beers, Bodhráns, and Banjos! You\'re missing out if you haven\'t been to this place, so come out and support local music AND a local business.',
         detailsUrl: ''
+    },
+    {
+        id: 'spg-spa-2026-08-15',
+        date: '2026-08-15',
+        venue: 'Spyglass on the Ridge Winery',
+        city: 'Sunbury',
+        state: 'PA',
+        country: 'US',
+        time: '',
+        description: 'Thrilled to be playing at this year\'s return of Celtic Fest at Spyglass on the Ridge this August!',
+        detailsUrl: 'https://valleyfusion570.com/event/celtic-fest/'
     }
 ];
 
