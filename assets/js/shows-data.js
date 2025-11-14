@@ -123,7 +123,7 @@ const ShowsUtils = {
 
     getFeaturedShows() {
         upcoming = this.getUpcomingShows()
-        return upcoming.slice(0, 3); // Limit to 3 for homepage
+        return upcoming.slice(0, 4); // Limit to 4 for homepage
     },
 
     // Get shows by location
