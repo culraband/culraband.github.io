@@ -66,7 +66,7 @@ const showsData = [
         country: 'US',
         time: '8:00 PM',
         description: 'We\'ll be at Backwater Books in Ellicott City for a night of Books, Beers, Bodhráns, and Banjos! You\'re missing out if you haven\'t been to this place, so come out and support local music AND a local business.',
-        detailsUrl: ''
+        detailsUrl: 'https://backwaterbooks.com/event/2026-02-21/backwater-sessions-culra',
     },
     {
         id: 'dcf-dpa-2026-04-18',
