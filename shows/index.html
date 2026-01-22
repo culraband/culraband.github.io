@@ -56,7 +56,7 @@
             <div class="footer-logo">
                 <img src="../assets/images/culra_icon.png" alt="Cúlra" class="logo-icon">
             </div>
-            <p>&copy; 2025 Cúlra. All rights reserved.</p>
+            <p>&copy; 2025-2026 Cúlra. All rights reserved.</p>
         </div>
     </footer>
 
@@ -69,45 +69,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             const showsRenderer = new ShowsRenderer();
             showsRenderer.renderShowsPage();
-            
-            // Optional: Initialize filters when ready
-            // initShowFilters();
         });
-        
-        // Future enhancement: Show filtering
-        function initShowFilters() {
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const showsRenderer = new ShowsRenderer();
-            
-            filterButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    // Remove active class from all buttons
-                    filterButtons.forEach(btn => btn.classList.remove('active'));
-                    // Add active class to clicked button
-                    this.classList.add('active');
-                    
-                    const filter = this.dataset.filter;
-                    const upcomingShows = ShowsUtils.getUpcomingShows();
-                    
-                    let filteredShows;
-                    switch(filter) {
-                        case 'acoustic':
-                            filteredShows = upcomingShows.filter(show => show.type === 'acoustic');
-                            break;
-                        case 'full-band':
-                            filteredShows = upcomingShows.filter(show => show.type === 'full-band');
-                            break;
-                        case 'on-sale':
-                            filteredShows = upcomingShows.filter(show => show.status === 'on-sale');
-                            break;
-                        default:
-                            filteredShows = upcomingShows;
-                    }
-                    
-                    showsRenderer.renderFilteredShows(filteredShows, 'upcoming-shows-grid');
-                });
-            });
-        }
     </script>
 </body>
 </html>
