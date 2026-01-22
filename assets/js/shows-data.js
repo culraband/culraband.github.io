@@ -69,15 +69,26 @@ const showsData = [
         detailsUrl: ''
     },
     {
-         id: 'dcf-dpa-2026-04-18',
+        id: 'dcf-dpa-2026-04-18',
         date: '2026-04-18',
         venue: 'Dills Celtic Fest',
         city: 'Dillsburg',
         state: 'PA',
         country: 'US',
         time: '1:45 PM',
-        description: 'We had a great time at Dills in 2025. Come catch our set on Saturday 4/18!',
+        description: "It's a new year, and we're starting the 2026 festival season right by returning to Dills Celtic Fest on April 18th. We'll be bringing new tunes, CD's, and T-shirts and you can do your part by bringing some warmer weather...",
         detailsUrl: 'https://dillscelticfest.com/entertainment-schedule',
+    },
+    {
+        id: 'pmf-ypa-2026-06-20',
+        date: '2026-06-20',
+        venue: 'Penn-Mar Irish Festival',
+        city: 'Glen Rock',
+        state: 'PA',
+        country: 'US',
+        time: '',
+        description: "Looking forward to playing at the Penn-Mar Irish Festival this June!",
+        detailsUrl: 'https://pennmaririshfestival.com/',
     },
     {
         id: 'bwb-ecm-2026-07-18',
@@ -123,7 +134,7 @@ const ShowsUtils = {
 
     getFeaturedShows() {
         upcoming = this.getUpcomingShows()
-        return upcoming.slice(0, 4); // Limit to 4 for homepage
+        return upcoming.slice(0, 3); // Limit to 3 for homepage
     },
 
     // Get shows by location
