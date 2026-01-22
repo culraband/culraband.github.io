@@ -72,54 +72,6 @@ a:hover {
     color: var(--text-light);
 }
 
-/* Brushed Circle Elements - Inspired by the logo */
-.logo-circle,
-.hero-logo-circle,
-.cover-circle,
-.placeholder-circle,
-.footer-logo-circle {
-    position: relative;
-    border: 2px solid var(--circle-stroke);
-    border-radius: 50%;
-    background: transparent;
-}
-
-.logo-circle::before,
-.hero-logo-circle::before,
-.cover-circle::before,
-.placeholder-circle::before,
-.footer-logo-circle::before {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border-radius: 50%;
-    background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-    opacity: 0.5;
-}
-
-/* Add subtle brush texture effect */
-.logo-circle::after,
-.hero-logo-circle::after,
-.cover-circle::after,
-.placeholder-circle::after,
-.footer-logo-circle::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    border-radius: 50%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.05) 1px, transparent 1px);
-    background-size: 15px 15px, 20px 20px, 12px 12px;
-}
-
 /* Header */
 header {
     background: rgba(0, 0, 0, 0.95);
@@ -132,11 +84,12 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
-nav {
+nav.container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1rem 3rem;
+    max-width: none;
 }
 
 .logo {
@@ -146,11 +99,6 @@ nav {
     font-size: 1.2rem;
     font-weight: var(--font-weight-bold);
     letter-spacing: 0.15em;
-}
-
-.logo-circle {
-    width: 35px;
-    height: 35px;
 }
 
 .nav-links {
@@ -241,33 +189,6 @@ nav {
     border: 0;
 }
 
-@keyframes slowRotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.hero h1 {
-    font-size: 4rem;
-    font-weight: var(--font-weight-normal);
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeInUp 1s ease 0.5s forwards;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 2.5rem;
-    color: var(--text-light);
-    font-style: italic;
-    opacity: 0;
-    animation: fadeInUp 1s ease 0.8s forwards;
-}
-
 .cta-button {
     display: inline-block;
     padding: 12px 30px;
@@ -302,29 +223,6 @@ nav {
 
 .cta-button:hover {
     color: var(--darker-color);
-}
-
-.hero-particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.03) 1px, transparent 1px),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03) 1px, transparent 1px),
-        radial-gradient(circle at 40% 40%, rgba(255,255,255,0.02) 1px, transparent 1px);
-    background-size: 50px 50px, 80px 80px, 60px 60px;
-    animation: drift 40s linear infinite;
-}
-
-@keyframes drift {
-    from {
-        transform: translate(0, 0);
-    }
-    to {
-        transform: translate(-50px, -50px);
-    }
 }
 
 @keyframes fadeInUp {
@@ -573,116 +471,6 @@ nav {
     }
 }
 
-/* Music Section */
-.music-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2.5rem;
-    margin-top: 2rem;
-}
-
-.album-card {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid var(--border-color);
-    border-radius: 0;
-    padding: 2rem;
-    text-align: center;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.album-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.01) 0%, rgba(255,255,255,0.03) 100%);
-    opacity: 0;
-    transition: var(--transition);
-}
-
-.album-card:hover::before {
-    opacity: 1;
-}
-
-.album-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-}
-
-.album-cover {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 1.5rem;
-    position: relative;
-    cursor: pointer;
-}
-
-.cover-circle {
-    width: 100%;
-    height: 100%;
-}
-
-.cover-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: var(--transition);
-    border-radius: 50%;
-}
-
-.album-cover:hover .cover-overlay {
-    opacity: 1;
-}
-
-.play-icon {
-    font-size: 2rem;
-    color: var(--primary-color);
-}
-
-.album-card h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: var(--font-weight-normal);
-}
-
-.album-card p {
-    color: var(--text-light);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.album-links {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.listen-link {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
-    transition: var(--transition);
-}
-
-.listen-link:hover {
-    border-color: var(--primary-color);
-    background: rgba(255, 255, 255, 0.05);
-}
-
 /* Shows Section */
 .shows-preview {
     max-width: 800px;
@@ -876,11 +664,6 @@ footer {
     letter-spacing: 0.15em;
 }
 
-.footer-logo-circle {
-    width: 30px;
-    height: 30px;
-}
-
 footer p {
     color: var(--text-medium);
     font-size: 0.9rem;
@@ -902,11 +685,6 @@ footer p {
 @media (max-width: 1024px) {
     .container {
         padding: 0 30px;
-    }
-    
-    .music-grid {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
     }
 }
 
@@ -944,16 +722,6 @@ footer p {
     
     .member-photo {
         height: 250px;
-    }
-    
-    .music-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    
-    .album-cover {
-        width: 150px;
-        height: 150px;
     }
     
     .show-item {
@@ -1001,26 +769,6 @@ footer p {
     .member-info {
         padding: 1.5rem;
     }
-    
-    .album-card {
-        padding: 1.5rem;
-    }
-    
-    .album-cover {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .album-links {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .listen-link {
-        width: 100%;
-        text-align: center;
-        max-width: 200px;
-    }
 }
 
 /* Print Styles */
@@ -1060,14 +808,6 @@ footer p {
         animation-duration: 0.01ms !important;
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
-    }
-    
-    .hero-particles {
-        animation: none;
-    }
-    
-    .hero-logo-circle {
-        animation: none;
     }
 }
 
