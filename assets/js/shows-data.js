@@ -111,7 +111,30 @@ const showsData = [
         time: '',
         description: 'Thrilled to be playing at this year\'s return of Celtic Fest at Spyglass on the Ridge this August!',
         detailsUrl: 'https://valleyfusion570.com/event/celtic-fest/'
+    },
+    {
+        id: 'ccl-bpa-2026-09-26',
+        date: '2026-09-26',
+        venue: 'Celtic Classic',
+        city: 'Bethlehem',
+        state: 'PA',
+        country: 'US',
+        time: '',
+        description: 'Looking forward to performing at the 39th annual Celtic Classic in Bethlehem, PA on both Saturday and Sunday.',
+        detailsUrl: 'https://celticfest.org/saturday-schedule/'
+    },
+    {
+        id: 'ccl-bpa-2026-09-27',
+        date: '2026-09-27',
+        venue: 'Celtic Classic',
+        city: 'Bethlehem',
+        state: 'PA',
+        country: 'US',
+        time: '',
+        description: 'Looking forward to performing at the 39th annual Celtic Classic in Bethlehem, PA on both Saturday and Sunday.',
+        detailsUrl: 'https://celticfest.org/sunday-schedule/'
     }
+
 ];
 
 // Utility functions for working with shows data
@@ -134,7 +157,7 @@ const ShowsUtils = {
 
     getFeaturedShows() {
         upcoming = this.getUpcomingShows()
-        return upcoming.slice(0, 3); // Limit to 3 for homepage
+        return upcoming; //upcoming.slice(0, 3); // Limit to 3 for homepage
     },
 
     // Get shows by location
